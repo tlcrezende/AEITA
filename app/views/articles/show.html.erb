@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <strong>PDF:</strong>
+
+  <embed src="<%= @article.pdf %>" width=800px height=2100px> <br>
+
+  <%= link_to "Meu PDF: #{@article.title}", @article.pdf.url %><br>
+</p>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -13,7 +22,7 @@
 <p>
   <strong>Publication at:</strong>
   <%= @article.publication_at %>
-</p>
+</p>  
 
 <p>
   <strong>Resumo:</strong>

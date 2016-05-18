@@ -3,7 +3,28 @@ class WelcomeController < ApplicationController
 			####
 	end
 
-	def secundario
+	def sobre
 			####
 	end
+
+	def politica
+			####
+	end
+
+	def corpo
+			####
+	end
+
+	def normas
+			####
+	end
+
+	def submissao
+			####
+	end
+
+	def contato
+			####
+	end
+
 end

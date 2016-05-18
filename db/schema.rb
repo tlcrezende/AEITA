@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517202352) do
+ActiveRecord::Schema.define(version: 20160518032347) do
 
   create_table "articles", force: :cascade do |t|
-    t.text     "title",          limit: 65535
-    t.text     "author",         limit: 65535
+    t.text     "title",            limit: 65535
+    t.text     "author",           limit: 65535
     t.date     "publication_at"
-    t.text     "resumo",         limit: 65535
-    t.text     "tags",           limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "resumo",           limit: 65535
+    t.text     "tags",             limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "pdf_file_name",    limit: 255
+    t.string   "pdf_content_type", limit: 255
+    t.integer  "pdf_file_size",    limit: 4
+    t.datetime "pdf_updated_at"
   end
 
 end
