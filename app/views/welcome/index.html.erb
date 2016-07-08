@@ -6,7 +6,7 @@
 <br>
 <%= link_to 'Corpo Editorial', corpo_path %>
 <br>
-<%= link_to 'Edição atual' %>
+<%= link_to 'Edição atual', articles_path %>
 <br>
 <%= link_to 'Edição Anteriores' %>
 <br>
@@ -18,3 +18,18 @@
 <br>
 <%= link_to 'Adm' %>
 <br>
+
+
+<% if user_signed_in? %>
+<ul>
+<li><%= current_user.email %></li>
+<li><%= user_session %></li>
+<li><%= link_to 'Sair',  destroy_user_session_path, method: :delete %></li>
+</ul>
+
+<% else %>
+<ul>
+<li><%= link_to 'Logar',  new_user_session_path %></li>
+<li><%= link_to 'Cadastro novo usuário',  new_user_registration_path %></li>
+</ul>
+<% end %>

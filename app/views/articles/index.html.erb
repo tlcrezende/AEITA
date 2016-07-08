@@ -1,35 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Articles</h1>
+<h1>Lista de Artigos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Publication at</th>
-      <th>Resumo</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+----- formualario ----
+    <%= form_tag(articles_path, :method => :get ) do %>
+      <%=  text_field_tag 'search', nil, placeholder: 'enter ...' %>
+
+      <%= submit_tag "Search" %>
+    <% end %>
 
   <tbody>
+    <% sequencia = Hash.new  %>
+    <% a = 1 %>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.author %></td>
-        <td><%= article.publication_at %></td>
-        <td><%= article.resumo %></td>
-        <td><%= article.tags %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+          <% sequencia[a] = article %>
+          <% a = a + 1 %>
     <% end %>
+
+    <% a = a -1 %>
+    <% while(a >= 1) %>
+          Título: <%= sequencia[a].title %><br>
+          Artigo: <%= link_to "#{sequencia[a].title}", sequencia[a].pdf.url %><br>
+          <%= link_to 'Mais Informações', sequencia[a] %>
+        
+            <td><%= link_to 'Edit', edit_article_path(sequencia[a]) %></td>
+            <td><%= link_to 'Destroy', sequencia[a], method: :delete, data: { confirm: 'Are you sure?' } %><br><br><br>
+          <% a = a -1 %>
+
+    <% end %>
+    <%= link_to 'New Article', new_article_path %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>

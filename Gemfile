@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
-# Paperclip
+# Paperclip (PDF)
 gem "paperclip", "~> 5.0.0.beta1"
+
+# Devise (Autenticação)
+gem 'devise' 
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -11,7 +15,7 @@ gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
+# Use CoffeeScript for .coffee anssets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

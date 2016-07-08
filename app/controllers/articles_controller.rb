@@ -1,10 +1,15 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if params[:search]
+      @articles = Article.where("title like ?", "%#{params[:search]}%" || "tags like ?", "%#{params[:search]}%")
+    else
+      @articles = Article.all
+    end
   end
 
   # GET /articles/1
